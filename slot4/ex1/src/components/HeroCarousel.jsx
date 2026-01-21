@@ -1,0 +1,28 @@
+import React from "react";
+import {Carousel} from "react-bootstrap";
+import { bannerData } from "../data/bannerData";
+function HeroCarousel() {
+  return (
+    <Carousel fade={true} interval={3000} pause="hover">
+      {bannerData.map((banner, index) => (
+        <Carousel.Item key={index}>
+          <img
+            className="d-block w-100"
+            src={banner.imageUrl}
+            alt={'Slide $(index + 1)}'}
+            style={{
+              height: "600px",        
+              objectFit: "cover",
+            }}
+          />
+          <Carousel.Caption>
+            <h3>{banner.title}</h3>
+            <p>{banner.description}</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+      ))}
+    </Carousel>
+  );
+}
+
+export default HeroCarousel;  
